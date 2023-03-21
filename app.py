@@ -5,6 +5,13 @@ import numpy as np
 import cv2
 import tensorflow as tf
 from keras.utils import img_to_array,load_img
+from googlesearch import search
+import requests
+from bs4 import BeautifulSoup
+import regex
+from englisttohindi.englisttohindi import EngtoHindi
+
+
 app=Flask(__name__)
 
 
@@ -37,12 +44,11 @@ def predict_label(img_path):
     p_max=np.argmax(p[0])
     return class_names[p_max]
    
-
-
 @app.route('/')
 def main():
     return render_template('index.html')
 
+p=''
 @app.route('/output',methods=['GET','POST'])
 def output():
     if request.method == 'POST':
@@ -50,9 +56,25 @@ def output():
         img_path='static/'+img.filename
         img.save(img_path)
         p=predict_label(img_path)
-        
-    return render_template('index.html',prediction=p)
+        return render_template('index.html',prediction=p)
 
+@app.route('/recording',methods=['GET','POST'])
+def hindi_text():
+     all_text=''
+     query=p
+     for url in search(query,tld='com',stop=2,lang='en'):
+        res=requests.get(url)
+#binary response content
+        html_page=res.content
+
+        soup=BeautifulSoup(html_page,'html.parser')
+        text=soup.find_all('p')
+        text=regex.sub('<.*?>',' ',str(text))
+        all_text=all_text+' '+text
+        message=all_text
+        hin_msg=EngtoHindi(message)
+        hin_msg=hin_msg.convert
+     return render_template('recording.html')
 
 if __name__ =='__main__':
 	app.debug = True

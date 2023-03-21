@@ -30,7 +30,11 @@
   </form>
 
 	{% if prediction %}
-	<h2> Your Prediction   : <i> {{prediction}} </i></h2>
+	<h2> <b><i> {{prediction}} </i></b></h2>
+  <form  action="/recording" method="post" enctype="multipart/form-data">
+    <button type="submit" class="btn btn-success">listen_solution</button>
+
+  </form>
 
 	{% endif %}
 
