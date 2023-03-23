@@ -9,8 +9,7 @@ from googlesearch import search
 import requests
 from bs4 import BeautifulSoup
 import regex
-from englisttohindi.englisttohindi import EngtoHindi
-
+import gtts
 
 app=Flask(__name__)
 
@@ -57,24 +56,29 @@ def output():
         img.save(img_path)
         p=predict_label(img_path)
         return render_template('index.html',prediction=p)
-
-@app.route('/recording',methods=['GET','POST'])
-def hindi_text():
-     all_text=''
-     query=p
-     for url in search(query,tld='com',stop=2,lang='en'):
+@app.route('/output/next_page',methods=['GET','POST'])
+def show():
+ return render_template('recording.html') 
+ 
+ @app.route('/output/next_page/text_to_voice',methods=['GET','POST'])
+def text_to_speech():
+    all_text=''
+    query=p
+    for url in search(query,tld='com',stop=2,lang='en'):
         res=requests.get(url)
+        pickle.dump(res,open("res.pkl",'wb'))
 #binary response content
         html_page=res.content
-
         soup=BeautifulSoup(html_page,'html.parser')
         text=soup.find_all('p')
         text=regex.sub('<.*?>',' ',str(text))
         all_text=all_text+' '+text
-        message=all_text
-        hin_msg=EngtoHindi(message)
-        hin_msg=hin_msg.convert
-     return render_template('recording.html')
+    message=all_text
+    pickle.dump(message,open("all.pkl",'wb'))
+    t1=gtts.gTTS(text=message,lang='en',slow=False)
+    t1.save("template/solution.mp3")
+    return render_template('recording.html') 
+
 
 if __name__ =='__main__':
 	app.debug = True
