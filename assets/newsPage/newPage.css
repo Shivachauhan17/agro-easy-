@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 62.5%;
+    font-size: 62.5%;
+}
+body{
+    background: rgb(247,255,236);
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    font-size: 2rem;
+    text-align: center;
+    position: fixed;
+    margin:10px;
+    height: 90px;
+}
+header>a{
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    background:rgb(32, 95, 32);
+    border-radius: 0.3rem;
+}
+main{
+    margin-top: 90px;
+    width: 100%;
+}
+.first-row2,.first-row1{
+    width: 50%;
+    height: 400px;
+    float: left;
+}
+.top-row,.bottom-row{
+    width: 50%;
+    height: 200px;
+
+}
+.top-row{
+    float: left;
+}
+.bottom-row{
+    float: left;
+}
+
+
+
+
+
+
+
