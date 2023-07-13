@@ -12,22 +12,25 @@ fetch(req)
                 let extra=i-2
                 extra=String(extra)
                 hid="sech1"+extra
-                pid="secp"+extra
-                imgid="img"+extra
+                imgid='img'+extra
+                aid="a"+extra
                 if(data['articles'][i]['urlToImage']!=null){
                 document.getElementById(imgid).src=data['articles'][i]['urlToImage']
                 }
                 else{
                     document.getElementById(imgid).src ='images.jpeg'
                 }
-                document.getElementById(pid).innerText=data['articles'][i]['content']
-                document.getElementById(hid).innerText=data['articles'][i]['title']
+                let str=data['articles'][i]['title']
+                str=str.substring(0,75)+'...'
+                document.getElementById(hid).innerText=str
+                document.getElementById(aid).href=data['articles'][i]['url']
+                //a.setAttribute('src',data['articles'][i]['url'])
             }
             else{
                 let section=document.createElement('section')
                 section.setAttribute("id","mainsec_continue")    
                 let img=document.createElement('img')
-                console.log(data)
+                //console.log(data)
                 if(data['articles'][i]['urlToImage']!=null && data['articles'][i]['urlToImage']!=undefined ){
                     
                     img.setAttribute("src",data['articles'][i]['urlToImage'])  
@@ -42,8 +45,13 @@ fetch(req)
                 h.textContent=data['articles'][i]['title']
                 let p=document.createElement('p')
                 p.textContent=data['articles'][i]['content']
+                let a=document.createElement('a')
+                a.setAttribute('href',data['articles'][i]['url'])
+                a.setAttribute('class','readfull')
+                a.innerText="read full"
                 subsection.append(h)
                 subsection.append(p)
+                subsection.append(a)
 
 
                 section.append(img)
@@ -59,3 +67,5 @@ fetch(req)
 
     })
     
+
+
