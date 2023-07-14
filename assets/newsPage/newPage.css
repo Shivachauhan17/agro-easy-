@@ -22,7 +22,7 @@ header>a{
     text-decoration: none;
     position: relative;
     top:3rem;
-    color: white;
+    color:white;
     padding-top: 0.5rem;
     background:rgb(32, 95, 32);
     border-radius: 0.3rem;
@@ -55,12 +55,14 @@ main{
     clear: both;
 }
 .first-row1>img{
+    width:100%;
     border-radius: 0.4rem;
-    height: 320px;
+    height: auto;
 }
 .top-row>img,.bottom-row>img{
+    width:100%;
     border-radius: 0.4rem;
-    height: 150px;
+    height:15rem;
 }
 .second-row{
     clear: both ;
@@ -81,6 +83,31 @@ section.top-row,section.bottom-row{
     float: left;
 }
 
+@media screen and (max-width:800px){
+    .first-row2,.first-row1{
+        float: none;
+        width: 100%;
+    }
+    .first-row2{
+        height: 2000px;
+        margin-bottom: 150px;
+    }
+
+    section.top-row,section.bottom-row{
+        float: none;
+        width:100%;
+        height: 500px;
+        margin: auto;
+        margin-bottom: 50px;
+        clear: both;
+       } 
+    .top-row>img,.bottom-row>img{
+            height: auto;
+       }       
+    }
+
+
+
 
 
 
@@ -98,7 +125,6 @@ section.top-row,section.bottom-row{
     overflow: hidden;
 }
 
-
 .second-row>section>img{
     height: 150px;
     text-align: center;
@@ -112,14 +138,34 @@ h2{
     clear: both;
 }
 
+@media screen and (max-width:800px) {
+    .second-row{
+        height: 1500px;
+    }
+    .second-row>section{
+        width: 100%;
+        float:none;
+        height: 500px;
+        margin:auto;
+    }
+    .second-row>section>img{
+        height: auto;
+        width: 100%;
+    }
+}
+
+
+
+
 
 
 #mainsec_continue{
     width:100%;
-    height: 20rem;
+    height: 200px;
     margin-top: 6rem;
     clear: both;
     font-size: 1.5rem;
+
 }
 .continues{
     width: 31%;
@@ -132,4 +178,18 @@ h2{
 }
 .continues,.sec_continue{
     float: left;
+}
+
+@media screen and (max-width:800px) {
+    #mainsec_continue{
+        height: 600px;
+        clear: both;
+    }
+    .continues,.sec_continue{
+        float: none;
+        width: 100%;
+    }   
+    .continues{
+        height: auto;
+    }
 }
