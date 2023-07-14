@@ -15,14 +15,14 @@ header{
     top: 0;
     font-size: 2rem;
     text-align: center;
-    position: fixed;
-    height: 70px;
+    height: 60px;
     background: white;
 }
 header>a{
     text-decoration: none;
+    position: relative;
+    top:3rem;
     color: white;
-    margin-top: 20px;
     padding-top: 0.5rem;
     background:rgb(32, 95, 32);
     border-radius: 0.3rem;
@@ -56,7 +56,7 @@ main{
 }
 .first-row1>img{
     border-radius: 0.4rem;
-    height: 350px;
+    height: 320px;
 }
 .top-row>img,.bottom-row>img{
     border-radius: 0.4rem;
