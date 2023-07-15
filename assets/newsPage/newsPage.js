@@ -43,14 +43,12 @@ fetch(req)
                 subsection.setAttribute("class","sec_continue")
                 let h=document.createElement('h2')
                 h.textContent=data['articles'][i]['title']
-                let p=document.createElement('p')
-                p.textContent=data['articles'][i]['content']
+               
                 let a=document.createElement('a')
                 a.setAttribute('href',data['articles'][i]['url'])
                 a.setAttribute('class','readfull')
                 a.innerText="read full"
                 subsection.append(h)
-                subsection.append(p)
                 subsection.append(a)
 
 
