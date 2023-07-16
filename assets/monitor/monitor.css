@@ -36,4 +36,49 @@ header>a{
 
 body{
     margin-top: 100px;
+    color:rgb(32, 95, 32);
+
 }
+
+body>h1{
+    font-size: 4rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.monitor-img{
+    width: 50%;
+    height: auto;
+    margin:0px 25% 20px 25% ;
+    border: 1px solid rgb(32, 95, 32);
+    border-radius: 0.4rem;
+}
+
+.public-section{
+    width: 60%;
+    margin:0px 20% 20px 20% ;
+    border: 1px solid rgb(32, 95, 32);
+    border-radius: 0.4rem;
+}
+
+.public-section img{
+    height: 48px;
+    width:6.2%;
+    border: 2px solid rgb(32, 95, 32);
+    border-radius: 4rem;
+}
+
+.public-section>h1{
+    margin-left: 4%;
+    font-size: 2rem;
+}
+
+.person-comment{
+    width: 80%;
+    margin: 0px 10% 8px 10%;
+    border: 1px solid rgb(32, 95, 32);
+    border-radius: 1rem;
+}
+
+
+
