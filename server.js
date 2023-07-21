@@ -73,6 +73,13 @@ const server = http.createServer((req,res) => {
             res.end()
         })
     }
+    else if(page == '/assets/newsPage/newsPage.js'){
+        fs.readFile('/assets/newsPage/newsPage.js', (error,data) => {
+            res.writeHead(200, {'Content-Type' : 'text/javascript'} )
+            res.write(data)
+            res.end()
+        })
+    }
 })
 
 server.listen(8000)
