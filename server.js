@@ -124,7 +124,7 @@ const server = http.createServer((req,res) => {
             res.end()
         })
     }
-    else if(page == '/assets/newspage/newsPage.js'){
+    else if(page == '/assets/newsPage/newsPage.js'){
         fs.readFile('/home/shiva1974/Desktop/farmer-crop-health-assist-website/assets/newsPage/newsPage.js', (error, data) => {
             res.writeHead(200, {'Content-Type' : 'text/javascript'})
             res.write(data)
@@ -132,13 +132,7 @@ const server = http.createServer((req,res) => {
         })
     }
 
-    // else if(page == '/assets/newsPage/newsPage.js'){
-    //     fs.readFile('/home/shiva1974/Desktop/farmer-crop-health-assist-website/assets/newsPage/newsPage.js', (error,data) => {
-    //         res.writeHead(200, {'Content-Type' : 'text/javascript'} )
-    //         res.write(data)
-    //         res.end()
-    //     })
-    // }
+    
 })
 
 server.listen(8000)
