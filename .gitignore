@@ -131,3 +131,4 @@ dmypy.json
 test
 New Plant Diseases Dataset(Augmented)
 model.h5
+model.json
