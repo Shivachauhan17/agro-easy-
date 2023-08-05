@@ -71,7 +71,7 @@ main>section>h1{
     padding-left: 1rem;
 } 
 body{
-    background-image: url('bodyBackground.jpg');
+    background-image: url('../img/bodyBackground.jpg');
     background-size: cover;
     background-repeat:repeat-y ;
     background-attachment: fixed;

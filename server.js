@@ -1,22 +1,22 @@
 const express=require('express')
 const app=express()
-const connectDB=require('./config/databse')
+const connectDB=require('./config/database')
 const homeRoutes=require('./routes/home')
-const newsRoutes=require('./routes/news')
-const monitorRoutes=require('./routes/monitor')
+//const newsRoutes=require('./routes/news')
+//const monitorRoutes=require('./routes/monitor')
 const { urlencoded } = require('body-parser')
 
 
-require('dotenv').config({path:'./config/env'})
+require('dotenv').config({path:'./config/.env'})
 connectDB()
-
+app.set('view engine','ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get('/',homeRoutes)
-app.get('/news',newsRoutes)
-app.get('/monitor',monitorRoutes)
+//app.get('/news',newsRoutes)
+//app.get('/monitor',monitorRoutes)
 
 let PORT=8000
 app.listen(PORT,()=>{
