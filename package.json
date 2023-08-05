@@ -1,0 +1,15 @@
+{
+  "name": "farmer-crop-health-assist-website",
+  "version": "1.0.0",
+  "description": "this project is to create a plant's common desease classifier web aap.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
