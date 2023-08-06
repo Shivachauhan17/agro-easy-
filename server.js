@@ -2,8 +2,8 @@ const express=require('express')
 const app=express()
 const connectDB=require('./config/database')
 const homeRoutes=require('./routes/home')
-//const newsRoutes=require('./routes/news')
-//const monitorRoutes=require('./routes/monitor')
+const newsRoutes=require('./routes/news')
+const monitorRoutes=require('./routes/monitor')
 const { urlencoded } = require('body-parser')
 
 
@@ -15,8 +15,8 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get('/',homeRoutes)
-//app.get('/news',newsRoutes)
-//app.get('/monitor',monitorRoutes)
+app.get('/news',newsRoutes)
+app.get('/monitor',monitorRoutes)
 
 let PORT=8000
 app.listen(PORT,()=>{
