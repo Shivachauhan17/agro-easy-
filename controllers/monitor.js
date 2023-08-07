@@ -4,7 +4,7 @@ module.exports={
         try{
             const farmer_data=await farmerData.find()
             console.log('****************************************************************')
-            console.log(farmer_data)
+            console.log(farmer_data.length)
             res.render('monitor.ejs',{info:farmer_data})
         }
         catch(error){
