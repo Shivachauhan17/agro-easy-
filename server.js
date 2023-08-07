@@ -5,6 +5,14 @@ const homeRoutes=require('./routes/home')
 const newsRoutes=require('./routes/news')
 const monitorRoutes=require('./routes/monitor')
 const { urlencoded } = require('body-parser')
+//for authentication
+const passport = require('passport')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const flash = require('express-flash')
+const logger = require('morgan')
+
+require('./config/passport')(passport)
 
 
 require('dotenv').config({path:'./config/.env'})
