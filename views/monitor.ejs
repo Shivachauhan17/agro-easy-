@@ -14,13 +14,13 @@
     <img class="monitor-img" alt="cropGrowthGraph" src="img/dummy_monitor_img.png">
     <section class="public-section">
        <h1>comments:</h1>
-        <% for(let i=0;i<info.length;i++){%>
+        <% for(let i=0;i<comments.length;i++){%>
 
             <section class="person-comment clearfix">
                 <img src="img/dummy_person_dp.jpeg" alt="person-profile">
                 <section class="second-piece">
-                    <h2><%= info[i].farmer_name %></h2>
-                    <p><%= info[i][1]%> </p>
+                    <h2><%= persons[i]%></h2>
+                    <p><%= comments[i]%> </p>
                     <i class="fa fa-thumbs-up" ></i>
                     <i class="fa fa-trash" ></i>
                 </section>

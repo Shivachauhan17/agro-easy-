@@ -1,22 +1,22 @@
 const mongoose=require('mongoose')
 
 const farmerDataSchema=new mongoose.Schema({
-    farmer_name:{
+    farmer:{
         type:String,
         required:true,
+    },
+    month_prediction:{
+        type:[Number],
+        default:[],
+    },
+    comment:{
+        type:[String],
+        default:[],
+    },
+    commenting_persons:{
+        type:[String],
+        default:[],
     }
-    // month_prediction:{
-    //     type:[Number],
-    //     default:[],
-    // },
-    // month_comments:{
-    //     type:[String],
-    //     default:[],
-    // },
-    // commenting_person:{
-    //     type:[String],
-    //     default:[],
-    // }
 }
 )
 
