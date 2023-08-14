@@ -2,13 +2,14 @@
 //based on their username and password stored in a local database.
 const LocalStrategy = require('passport-local').Strategy
 const mongoose = require('mongoose')
-const User = require('../models/User')
+const User = require('../model/User')
 
 //module passport passed as an argument  
-module.exports = function (passport) {
+module.exports = async function (passport) {
     passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-      User.findOne({ email: email.toLowerCase() }, (err, user) => {
-        if (err) { return done(err) }
+    const data =await User.findOne({ email: email.toLowerCase() }, (err, user) => {
+      User.findOne({email:email.toLowerCase()})
+      .then(user=>{
         if (!user) {
           return done(null, false, { msg: `Email ${email} not found.` })
         }
@@ -21,9 +22,13 @@ module.exports = function (passport) {
             return done(null, user)
           }
           return done(null, false, { msg: 'Invalid email or password.' })
-        })
       })
-    }))
+    })
+     .catch(err=>{
+      if(err){
+        return done(err)
+      }
+     })
     
   
     passport.serializeUser((user, done) => {

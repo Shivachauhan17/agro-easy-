@@ -14,7 +14,7 @@ const passport = require('passport')
 const session = require('express-session')
 // MongoDB session store for Connect and Express written in Typescript.
 
-const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo')
 // Flash is an extension of connect-flash with the ability to 
 // define a flash message and render it without redirecting the request.
 const flash = require('express-flash')
@@ -33,13 +33,19 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(logger('dev'))
 
+let store = new MongoStore({
+  mongoUrl: process.env.DB_STRING,
+  collection: "sessions"
+});
+
 app.use(
     session({
       secret: 'keyboard cat',
       resave: false,
       saveUninitialized: false,
       // so we are gonna have our session info in our mongo database
-      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      // store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      store:store,
     })
   )
   
