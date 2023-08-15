@@ -19,12 +19,11 @@
             <section class="person-comment clearfix">
                 <img src="img/dummy_person_dp.jpeg" alt="person-profile">
                 <section class="second-piece">
-                    <h2><%= persons[i]%></h2>
-                    <p><%= comments[i]%> </p>
-                    <i class="fa fa-thumbs-up" ></i>
-                    <i class="fa fa-trash" ></i>
+                    <h2><%= comments[i].commenting_persons%></h2>
+                    <p><%= comments[i].comment%> </p>
                 </section>
             </section><%}%> 
     </section>
+
 </body>
 </html>
